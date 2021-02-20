@@ -39,10 +39,10 @@ function inViewport(elem) {
     );
 }
 
-// Toggle 'your-active-class' in sections
+// Toggle active class in sections & navbar list
 function toggleActiveStatus() {
+    const a = document.querySelectorAll('a');
     for (let [index, section] of sections.entries()) {
-        const a = document.querySelectorAll('a');
         if (inViewport(section)) {
             section.classList.add('your-active-class');
             a[index].classList.add('active');
@@ -85,19 +85,8 @@ navbar.appendChild(fragment);
 document.addEventListener('scroll', toggleActiveStatus);
 
 
-// Scroll to anchor ID using scrollTO event
-
-
 /**
  * End Main Functions
- * Begin Events
+ * 
  * 
 */
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
