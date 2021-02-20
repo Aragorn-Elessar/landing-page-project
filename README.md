@@ -17,10 +17,10 @@ For specific, detailed instructions, look at the project instructions in the Uda
 
 - New section has been created in `index.html`
 
-- Added helping function to check if a specific section is in viewport
+- Added helping function to check if a specific section is in the viewport
 
 - Created an event to listen for `scroll` event and add active class to it
 
-- Added helping function to `add/remove` active status
+- Added helping function to `add/remove` active status from sections & navbar list
 
 - Created navbar list elements. included anchor elements within including the style classes and link to sections

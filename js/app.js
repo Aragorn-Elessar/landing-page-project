@@ -41,11 +41,14 @@ function inViewport(elem) {
 
 // Toggle 'your-active-class' in sections
 function toggleActiveStatus() {
-    for (let section of sections) {
+    for (let [index, section] of sections.entries()) {
+        const a = document.querySelectorAll('a');
         if (inViewport(section)) {
             section.classList.add('your-active-class');
+            a[index].classList.add('active');
         } else {
             section.classList.remove('your-active-class');
+            a[index].classList.remove('active');
         }
     }
 }
