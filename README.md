@@ -6,8 +6,8 @@
 * [Prerequisites](#Prerequisites)
 * [Installing](#Installing)
 * [Changes](#Changes)
-* [Credits](#Credits)
 * [Author](#Author)
+* [Credits](#Credits)
 
 ## project description
 
