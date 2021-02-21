@@ -22,11 +22,17 @@ Any code editor (e.g: VSCode, Atom,... etc)
 Terminal commands to start using project:
 
 - Get a copy on your machine
+```
 `git clone https://github.com/Aragorn-Elessar/landing-page-project.git`
+```
 - Call into the directory location
+```
 `cd landing-page-project`
+```
 - Opens code in `VSCode`
+```
 `code .`
+```
 
 ## Changes
 
@@ -42,10 +48,10 @@ Terminal commands to start using project:
 
 - Added smooth scrolling to navbar anchors
 
-## Credits
-
-A [Udacity](https://www.udacity.com) Nanodegree project, provided by [FWD](https://egfwd.com/) initiative
-
 ## Author
 
 [Mahmoud Gadallah](https://github.com/Aragorn-Elessar)
+
+## Credits
+
+A [Udacity](https://www.udacity.com) Nanodegree project, provided by [FWD](https://egfwd.com/) initiative
