@@ -68,8 +68,9 @@ let secNumber = 1;
 
 for (let item of listItems) {
     const navItem = document.createElement('li');
+    // Select sections heading names to be applied to list anchors
     const heading = item.querySelector('h2').innerText;
-    // Create anchor tag with link
+    // Create anchor tags with links
     const anchor = document.createElement('a');
     anchor.setAttribute('href', `#section${secNumber}`)
     anchor.textContent = `${heading}`;
