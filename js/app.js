@@ -42,15 +42,17 @@ function inViewport(elem) {
 // Toggle active class in sections & navbar list
 function toggleActiveStatus() {
     const a = document.querySelectorAll('a');
-    for (let [index, section] of sections.entries()) {
-        if (inViewport(section)) {
-            section.classList.add('your-active-class');
-            a[index].classList.add('active');
-        } else {
-            section.classList.remove('your-active-class');
-            a[index].classList.remove('active');
+    setTimeout(() => {
+        for (let [index, section] of sections.entries()) {
+            if (inViewport(section)) {
+                section.classList.add('your-active-class');
+                a[index].classList.add('active');
+            } else {
+                section.classList.remove('your-active-class');
+                a[index].classList.remove('active');
+            }
         }
-    }
+    }, 0);
 }
 
 
@@ -85,8 +87,19 @@ navbar.appendChild(fragment);
 document.addEventListener('scroll', toggleActiveStatus);
 
 
+// Add smooth scrolling to navbar anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
 /**
  * End Main Functions
- * 
- * 
+ *
+ *
 */
