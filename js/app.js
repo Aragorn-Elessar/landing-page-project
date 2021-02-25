@@ -56,7 +56,6 @@ function toggleActiveStatus() {
 }
 
 
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -68,13 +67,13 @@ let secNumber = 1;
 
 for (let item of listItems) {
     const navItem = document.createElement('li');
-    // Select sections heading names to be applied to list anchors
+    // Select sections heading names to be applied to navbar list anchors
     const heading = item.querySelector('h2').innerText;
     // Create anchor tags with links
     const anchor = document.createElement('a');
     anchor.setAttribute('href', `#section${secNumber}`)
     anchor.textContent = `${heading}`;
-    // Add style to navbar list
+    // Add style classes to navbar list
     anchor.classList.add('navbar__menu', 'menu__link');
 
     navItem.appendChild(anchor);
@@ -98,6 +97,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
 
 /**
  * End Main Functions
