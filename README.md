@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Project-description](#Project-description)
 * [Prerequisites](#Prerequisites)
 * [Installing](#Installing)
 * [Changes](#Changes)
 * [Author](#Author)
 * [Credits](#Credits)
 
-## project description
+## Project-description
 
 The starter project has some HTML and CSS styling to display a static version of the Landing Page project. I needed to convert this project from a static project to an interactive one. This required modifying the HTML and CSS files, but primarily the JavaScript file.
 
