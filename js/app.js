@@ -29,8 +29,8 @@ const sections = document.querySelectorAll('[data-nav]');
  * 
 */
 // Check if the element is in the viewport
-function inViewport(elem) {
-    const rect = elem.getBoundingClientRect();
+function inViewport(e) {
+    const rect = e.getBoundingClientRect();
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
@@ -78,7 +78,7 @@ for (let item of listItems) {
 
     navItem.appendChild(anchor);
     fragment.appendChild(navItem);
-    secNumber += 1;
+    secNumber++;
 }
 navbar.appendChild(fragment);
 
