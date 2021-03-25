@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-* [Project-description](#Project-description)
+* [Project-Description](#Project-Description)
 * [Prerequisites](#Prerequisites)
 * [Installing](#Installing)
-* [Changes](#Changes)
+* [Steps](#Steps)
 * [Author](#Author)
 * [Credits](#Credits)
 
-## Project-description
+## Project-Description
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. I needed to convert this project from a static project to an interactive one. This required modifying the HTML and CSS files, but primarily the JavaScript file.
+The starter project had some HTML and CSS styling to display a static version of the Landing Page. I needed to convert this project from a static page to an interactive one. This required modifying the HTML and CSS files, but primarily the JavaScript file.
 
 ## Prerequisites
 
@@ -34,19 +34,93 @@ Terminal commands to start using project:
 `code .`
 ```
 
-## Changes
+## Steps
 
-- New section has been created in `index.html`
+- Define global variables
+```js
+const listItems = document.getElementsByClassName('landing__container');
+const navbar = document.getElementById('navbar__list');
+const fragment = document.createDocumentFragment();
+const sections = document.querySelectorAll('[data-nav]');
+```
 
-- Added helping function to check if a specific section is in the viewport
 
-- Added helping function to `add/remove` active status from sections & navbar list
+- Create a dynamic navbar function in case any more suctions get added in the future
+```js
+// build the nav
+let secNumber = 1;
 
-- Created navbar list elements, anchor elements, and included style classes and links to sections
+for (let item of listItems) {
+    const navItem = document.createElement('li');
+    // Select sections heading names to be applied to navbar list anchors
+    const heading = item.querySelector('h2').innerText;
+    // Create anchor tags with links
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', `#section${secNumber}`)
+    anchor.textContent = `${heading}`;
+    // Add style classes to navbar list
+    anchor.classList.add('navbar__menu', 'menu__link');
 
-- Created an event to listen for `scroll` event and add active class to the navbar/section in view
+    navItem.appendChild(anchor);
+    fragment.appendChild(navItem);
+    secNumber++;
+}
+navbar.appendChild(fragment);
+```
 
-- Added smooth scrolling to navbar anchors
+- Create helping function to check if a specific section is in the `viewport`
+```js
+// Check if the element is in the viewport
+function inViewport(e) {
+    const rect = e.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+```
+
+- Create helping function to `add/remove` active status from sections & navbar list
+```js
+// Toggle active class in sections & navbar list
+function toggleActiveStatus() {
+    const a = document.querySelectorAll('a');
+    setTimeout(() => {
+        for (let [index, section] of sections.entries()) {
+            if (inViewport(section)) {
+                section.classList.add('your-active-class');
+                a[index].classList.add('active');
+            } else {
+                section.classList.remove('your-active-class');
+                a[index].classList.remove('active');
+            }
+        }
+    }, 0);
+}
+```
+
+
+- Add an event to listen for `scroll` event and add active class to the `navbar/section` in view
+```js
+// Add class 'active' to section when near top of viewport
+document.addEventListener('scroll', toggleActiveStatus);
+```
+
+- Add smooth scrolling to navbar anchors
+```js
+// Add smooth scrolling to navbar anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+```
 
 ## Author
 
