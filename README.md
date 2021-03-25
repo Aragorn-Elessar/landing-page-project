@@ -45,7 +45,7 @@ const sections = document.querySelectorAll('[data-nav]');
 ```
 
 
-- Create a dynamic navbar function in case any more suctions get added in the future
+- Create a dynamic navbar `for...of` statement in case any more suctions get added in the future
 ```js
 // build the nav
 let secNumber = 1;
